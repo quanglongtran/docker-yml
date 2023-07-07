@@ -1,0 +1,30 @@
+version: '3.3'
+
+services:
+  database:
+    image: mysql:latest
+    container_name: mysql
+    restart: always
+    ports:
+      - "3308:80"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_DATABASE: api
+
+  pma:
+    image: phpmyadmin:latest
+    restart: always
+    container_name: pma
+    working_dir: /usr/share/nginx/html
+    ports:
+      - "3307:80"
+    environment:
+      MYSQL_USER: root
+      PMA_ARBITRARY: 1
+    depends_on:
+      - database
+    links:
+      - database
+
+volumes:
+  logvolume01: {}

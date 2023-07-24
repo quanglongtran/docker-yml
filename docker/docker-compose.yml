@@ -2,7 +2,7 @@ version: "3.9"
 services:
   web:
     container_name: test
-    image: quanglongtran/php:81
+    image: quanglongtran03/php:81
     ports:
       - "3:80"
     volumes:

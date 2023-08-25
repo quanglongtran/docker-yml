@@ -10,7 +10,7 @@ services:
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 1
       MYSQL_DATABASE: api
-
+      TZ: 'Asia/Ho_Chi_Minh'
   pma:
     image: phpmyadmin:latest
     restart: always
@@ -21,6 +21,7 @@ services:
     environment:
       MYSQL_USER: root
       PMA_ARBITRARY: 1
+      TZ: 'Asia/Ho_Chi_Minh'
     depends_on:
       - database
     links:

@@ -1,14 +1,16 @@
 version: "3.9"
 services:
   web:
-    container_name: test
-    image: quanglongtran03/php:81
+    container_name: demo
+    image: quanglongtran03/php:81i
     ports:
-      - "3:80"
+      - "5:80"
     volumes:
-      - /programing/laravel/test:/usr/share/nginx/html
-      - ./nginx:/var/log/nginx
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      # - /programing/laravel/test:/usr/share/nginx/html
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./php/php.ini:/etc/php/8.1/fpm/php.ini
+      - ./logs/nginx:/var/log/nginx
+      - ./logs/php/php-fpm.log:/var/log/php-fpm.log
     working_dir: /usr/share/nginx/html
     environment: 
       TZ: 'Asia/Ho_Chi_Minh'

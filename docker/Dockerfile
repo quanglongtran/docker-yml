@@ -10,7 +10,7 @@ RUN git clone https://github.com/ohmyzsh/ohmyzsh.git $ZSH
 
 ENV SHELL=/bin/zsh
 RUN cp $ZSH/templates/zshrc.zsh-template ~/.zshrc
-RUN echo "zend_extension=xdebug.so\nxdebug.remote_enable=1\nxdebug.remote_autostart=1" > /etc/php/8.1/mods-available/xdebug.ini
+RUN echo "zend_extension=xdebug.so\nxdebug.mode=debug\nxdebug.start_with_request=1\n" > /etc/php/8.1/mods-available/xdebug.ini
 RUN git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 COPY ./.zshrc /root
 
